@@ -39,7 +39,7 @@ public class Main {
         //precious password - pofuduk
 if (password.equalsIgnoreCase("begubebek")|| password.equalsIgnoreCase("begucuk")) {
     System.out.println("\nPassword Strength: BITANEM");
-    return;A
+    return;
 }
         int score = calculateStrength(password);
         String result = evaluate(score);
