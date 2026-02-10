@@ -17,7 +17,7 @@ legendary passwords *"begubebek"* and *"begucuk"*. 💚
 - Basic Java practice  
 - Lightweight and console-based
 
-- ## 🧪 Tests
+ ## 🧪 Tests
 
 This project includes **JUnit 5** tests written as part of my learning process to better understand
 how automated testing works in Java and how it improves code reliability.
@@ -52,7 +52,7 @@ the existing password strength evaluation logic.
 - **IntelliJ IDEA Community Edition**
 - Regex and conditional logic
 
-- ## 🧠 Mini Case Study — Password Strength Checker
+ ## 🧠 Mini Case Study — Password Strength Checker
 
 ### 📌 Problem
 Many users are unsure whether their passwords are actually strong or not.
@@ -109,7 +109,8 @@ Real-world password checkers may also include:
 - Add entropy-based strength scoring
 - Create a GUI or web version (HTML / JavaScript)
 - Make rules configurable
-- Add unit tests
+- Add more edge case unit tests
+
 
 ---
 
@@ -126,6 +127,9 @@ It represents an early but meaningful step in my software development journey.
 ---
 
 ## 🚀 How to Run
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/atakankeskin99/password-strength-checker.git
+```bash
+git clone https://github.com/atakankeskin99/password-strength-checker.git
+cd password-strength-checker
+javac Main.java
+java test.Main
+
