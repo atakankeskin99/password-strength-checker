@@ -8,8 +8,16 @@ It is a simple Java console application that evaluates
 And of course, it includes special “secret mode” responses for the  
 legendary passwords *"begubebek"* and *"begucuk"*. 💚
 
----
-## 🧪 Tests
+## 💡 Features
+- Checks password length  
+- Detects uppercase / lowercase / digits / special characters  
+- Special hidden responses:
+  - `begubebek` → **BITANEM** 💚  
+  - `begucuk` → **POFUDUK** 💛  
+- Basic Java practice  
+- Lightweight and console-based
+
+- ## 🧪 Tests
 
 This project includes **JUnit 5** tests written as part of my learning process to better understand
 how automated testing works in Java and how it improves code reliability.
@@ -36,18 +44,6 @@ To run the tests in **IntelliJ IDEA**:
 
 All tests are expected to pass and help ensure that future changes do not break
 the existing password strength evaluation logic.
-
-
-
-
-## 💡 Features
-- Checks password length  
-- Detects uppercase / lowercase / digits / special characters  
-- Special hidden responses:
-  - `begubebek` → **BITANEM** 💚  
-  - `begucuk` → **POFUDUK** 💛  
-- Basic Java practice  
-- Lightweight and console-based
 
 ---
 
