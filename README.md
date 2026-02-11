@@ -143,8 +143,6 @@ It represents an early but meaningful step in my software development journey.
 
 ## 🚀 How to Run
 ```bash
-git clone https://github.com/atakankeskin99/password-strength-checker.git
-cd password-strength-checker
 javac Main.java
-java test.Main
+java test.Main   # if Main.java is in package 'test'
 
