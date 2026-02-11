@@ -48,6 +48,18 @@ To run the tests in **IntelliJ IDEA**:
 All tests are expected to pass and help ensure that future changes do not break
 the existing password strength evaluation logic.
 
+## Implementations
+
+This project was built as a learning exercise to practice basic password
+strength evaluation in a Java console application.
+
+To reinforce the same concepts and compare approaches, the logic was later
+reimplemented in another language:
+
+- **Node.js (CLI version)**  
+  https://github.com/atakankeskin99/password-strength-checker-js
+
+
 ---
 
 ## 🛠 Technologies Used
