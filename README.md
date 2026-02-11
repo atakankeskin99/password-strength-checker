@@ -1,5 +1,8 @@
 # 🔐 Password Strength Checker (BITANEM Edition)
 
+> ✅ Also available in Node.js (learning-focused CLI version):  
+> https://github.com/atakankeskin99/password-strength-checker-js
+
 This project is my **first and symbolic software project**.  
 A small step for humanity, but a big step for Atakan. 🚀😄
 
