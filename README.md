@@ -16,7 +16,7 @@ legendary passwords *"begubebek"* and *"begucuk"*. 💚
 - Detects uppercase / lowercase / digits / special characters  
 - Special hidden responses:
   - `begubebek` → **BITANEM** 💚  
-  - `begucuk` → **POFUDUK** 💛  
+  - `begucuk` → **BITANEM** 💛  
 - Basic Java practice  
 - Lightweight and console-based
 
