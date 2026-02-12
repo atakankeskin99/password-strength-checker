@@ -1,4 +1,9 @@
 # 🔐 Password Strength Checker (BITANEM Edition)
+![Java](https://img.shields.io/badge/Java-JDK%2017-orange)
+![Type](https://img.shields.io/badge/type-Console-lightgrey)
+![Testing](https://img.shields.io/badge/tested_with-JUnit%205-blue)
+![Status](https://img.shields.io/badge/status-learning%20project-lightgrey)
+
 
 > ✅ Also available in Node.js (learning-focused CLI version):  
 > https://github.com/atakankeskin99/password-strength-checker-js
