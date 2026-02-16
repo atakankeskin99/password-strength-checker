@@ -1,4 +1,4 @@
-# 🔐 Password Strength Checker (BITANEM Edition)
+# 🔐 Password Strength Checker
 ![Java](https://img.shields.io/badge/Java-JDK%2017-orange)
 ![Type](https://img.shields.io/badge/type-Console-lightgrey)
 ![Testing](https://img.shields.io/badge/tested_with-JUnit%205-blue)
@@ -19,10 +19,11 @@ legendary passwords *"begubebek"* and *"begucuk"*. 💚
 ## 💡 Features
 - Checks password length  
 - Detects uppercase / lowercase / digits / special characters  
+- Classifies passwords as `WEAK`, `MEDIUM`, or `STRONG`
+- Automatically suggests a strong password if the result is not `STRONG`
 - Special hidden responses:
   - `begubebek` → **BITANEM** 💚  
   - `begucuk` → **BITANEM** 💛  
-- Basic Java practice  
 - Lightweight and console-based
 
  ## 🧪 Tests
@@ -52,6 +53,29 @@ To run the tests in **IntelliJ IDEA**:
 
 All tests are expected to pass and help ensure that future changes do not break
 the existing password strength evaluation logic.
+
+## 📁 Project Structure (Learning-Oriented Setup)
+
+As part of understanding how Java projects are structured,
+this project follows a simplified separation of production and test code:
+
+src
+ ├── main
+ │    └── java
+ │         └── test
+ │              └── Main.java
+ │
+ └── test
+      └── java
+           └── test
+                └── MainTest.java
+
+This structure helped me understand:
+- The difference between application code and test code
+- How JUnit integrates with project structure
+- How source roots work in IntelliJ IDEA
+
+---
 
 ## Implementations
 
