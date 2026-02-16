@@ -59,6 +59,7 @@ the existing password strength evaluation logic.
 As part of understanding how Java projects are structured,
 this project follows a simplified separation of production and test code:
 
+```text
 src
  ├── main
  │    └── java
@@ -69,6 +70,8 @@ src
       └── java
            └── test
                 └── MainTest.java
+```
+
 
 This structure helped me understand:
 - The difference between application code and test code
