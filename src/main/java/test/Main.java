@@ -32,6 +32,29 @@ public class Main {
         return !"STRONG".equals(strengthResult);
     }
 
+    // ✅ New: show user what is missing (English feedback)
+    public static String getMissingCriteria(String password) {
+        StringBuilder feedback = new StringBuilder();
+
+        if (!password.matches(".*[A-Z].*")) {
+            feedback.append("- At least one uppercase letter (A-Z)\n");
+        }
+        if (!password.matches(".*[a-z].*")) {
+            feedback.append("- At least one lowercase letter (a-z)\n");
+        }
+        if (!password.matches(".*[0-9].*")) {
+            feedback.append("- At least one digit (0-9)\n");
+        }
+        if (!password.matches(".*[!@#$%^&*().,?].*")) {
+            feedback.append("- At least one special character (!@#$...)\n");
+        }
+        if (password.length() < 9) {
+            feedback.append("- Minimum length of 9 characters\n");
+        }
+
+        return feedback.toString();
+    }
+
     // ✅ New: guaranteed strong password generator (no flaky tests)
     public static String generateStrongPassword() {
         final String upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -84,6 +107,11 @@ public class Main {
         String result = evaluate(score);
 
         System.out.println("\nPassword Strength: " + result);
+
+        if (!"STRONG".equals(result)) {
+            System.out.println("Missing requirements:");
+            System.out.print(getMissingCriteria(password));
+        }
 
         if (needsSuggestion(result)) {
             System.out.println("Suggested Strong Password: " + generateStrongPassword());
