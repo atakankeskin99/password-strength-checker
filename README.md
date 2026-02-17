@@ -1,4 +1,4 @@
-# 🔐 Password Strength Checker
+# 🔐 Password Strength Checker (BITANEM Edition)
 ![Java](https://img.shields.io/badge/Java-JDK%2017-orange)
 ![Type](https://img.shields.io/badge/type-Console-lightgrey)
 ![Testing](https://img.shields.io/badge/tested_with-JUnit%205-blue)
@@ -19,85 +19,88 @@ legendary passwords *"begubebek"* and *"begucuk"*. 💚
 ## 💡 Features
 - Checks password length  
 - Detects uppercase / lowercase / digits / special characters  
-- Classifies passwords as `WEAK`, `MEDIUM`, or `STRONG`
-- Automatically suggests a strong password if the result is not `STRONG`
 - Special hidden responses:
   - `begubebek` → **BITANEM** 💚  
   - `begucuk` → **BITANEM** 💛  
+- Clean and beginner-friendly Java implementation
+ 
 - Lightweight and console-based
+
+  ## ✨ New Feature: Helpful Feedback for Weak/Medium Passwords
+
+If the password is not **STRONG**, the application now shows **which requirements are missing**, helping the user understand exactly how to improve the password.
+
+### Example Output (CLI)
+
+<p align="center">
+  <img src="screenshots/example.png" alt="Missing requirements output screenshot" width="800" />
+</p>
+
+<p align="center">
+  <em>Weak password feedback — missing requirements are listed and a strong password is suggested</em>
+</p>
+
+### What it checks
+- At least one uppercase letter (A-Z)
+- At least one lowercase letter (a-z)
+- At least one digit (0-9)
+- At least one special character (!@#$...)
+- Minimum length of 9 characters
+
 
  ## 🧪 Tests
 
-This project includes **JUnit 5** tests written as part of my learning process to better understand
-how automated testing works in Java and how it improves code reliability.
+This project includes **JUnit 5** tests written as part of my learning process to better understand automated testing in Java and how it improves code reliability and confidence during refactoring.
 
 ### Purpose of the tests
+
 The tests were added to:
-- Learn the fundamentals of unit testing with **JUnit 5**
-- Understand how to verify business logic programmatically
-- Practice writing tests before and after modifying existing code
-- Gain hands-on experience with test-driven thinking
+
+- Learn the fundamentals of unit testing with JUnit 5  
+- Understand how to verify business logic programmatically  
+- Practice writing tests both before and after modifying existing code  
+- Gain hands-on experience with test-driven thinking  
 
 ### Covered scenarios
+
 - Special predefined passwords (`begubebek`, `begucuk`)
 - Weak passwords (short length, low complexity)
 - Medium-strength passwords
 - Strong passwords based on length and character variety
+- Validation of missing password requirements
+- Verification that generated passwords are always strong
 
 ### Running the tests
+
 To run the tests in **IntelliJ IDEA**:
 
-1. Open the project
-2. Right-click on the `src/test` directory
+1. Open the project  
+2. Right-click on the `src/test` directory  
 3. Select **Run 'Tests in test'**
 
-All tests are expected to pass and help ensure that future changes do not break
-the existing password strength evaluation logic.
-
-## 📁 Project Structure (Learning-Oriented Setup)
-
-As part of understanding how Java projects are structured,
-this project follows a simplified separation of production and test code:
-
-```text
-src
- ├── main
- │    └── java
- │         └── test
- │              └── Main.java
- │
- └── test
-      └── java
-           └── test
-                └── MainTest.java
-```
+All tests are expected to pass and help ensure that future changes do not break the existing password strength evaluation logic.
 
 
-This structure helped me understand:
-- The difference between application code and test code
-- How JUnit integrates with project structure
-- How source roots work in IntelliJ IDEA
+## 🔁 Implementations
 
----
+> ✅ Also available in other implementations (JavaFX GUI & Node.js CLI):
 
-## Implementations
-
-This project was built as a learning exercise to practice basic password
-strength evaluation in a Java console application.
-
-To reinforce the same concepts and compare approaches, the logic was later
-reimplemented in another language:
+- **JavaFX (GUI version)**  
+  https://github.com/atakankeskin99/password-strength-checker-javafx
 
 - **Node.js (CLI version)**  
   https://github.com/atakankeskin99/password-strength-checker-js
+
 
 
 ---
 
 ## 🛠 Technologies Used
 - **Java 17**
+- **JUnit 5**
 - **IntelliJ IDEA Community Edition**
 - Regex and conditional logic
+
 
  ## 🧠 Mini Case Study — Password Strength Checker
 
@@ -176,5 +179,6 @@ It represents an early but meaningful step in my software development journey.
 ## 🚀 How to Run
 ```bash
 javac Main.java
-java test.Main   # if Main.java is in package 'test'
+java test.Main   # when Main.java is in the 'test' package
+
 
