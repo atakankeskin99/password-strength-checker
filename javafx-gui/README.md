@@ -76,9 +76,25 @@ The application provides:
 
 The strength result updates automatically while typing and can also be triggered using the **Check** button.
 
-## Screenshot
+## Screenshots
 
-See the [`screenshots`](screenshots/) directory for an example of the JavaFX application.
+### Weak Password
+
+<p align="center">
+  <img src="screenshots/weak.png" alt="Weak password evaluation" width="650">
+</p>
+
+### Medium Password
+
+<p align="center">
+  <img src="screenshots/medium.png" alt="Medium password evaluation" width="650">
+</p>
+
+### Strong Password
+
+<p align="center">
+  <img src="screenshots/strong.png" alt="Strong password evaluation" width="650">
+</p>
 
 ## What I Practiced
 
