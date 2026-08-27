@@ -1,141 +1,89 @@
-# Password Strength Checker (Node.js CLI)
+# Node.js CLI Implementation
 
-![JavaScript](https://img.shields.io/badge/JavaScript-Node.js-yellow)
-![CLI](https://img.shields.io/badge/type-CLI-lightgrey)
-![Status](https://img.shields.io/badge/status-learning%20project-lightgrey)
-![License: MIT](https://img.shields.io/badge/License-MIT-green)
+The command-line JavaScript implementation of the **Password Strength Checker** project, built with Node.js.
 
-A learning-focused Node.js CLI project to practice input handling, modular design, and basic password strength evaluation.
+This version translates the password-strength evaluation logic into JavaScript while keeping the application lightweight and dependency-free.
 
-> ✅ Java version (original console app):  
-> https://github.com/atakankeskin99/password-strength-checker
+> This implementation is part of the main [Password Strength Checker](../README.md) repository.
 
----
+## Features
 
-## 🚀 Features
+* Command-line password input
+* Password strength evaluation
+* Five-point scoring system
+* Uppercase character detection
+* Lowercase character detection
+* Number detection
+* Special character detection
+* Minimum length validation
+* Lightweight Node.js implementation
+* No external dependencies
 
-- Evaluates password strength using simple rules:
-  - Minimum length
-  - Uppercase letters
-  - Lowercase letters
-  - Digits
-  - Special characters
-- Returns a clear label (e.g., `WEAK`, `MEDIUM`, `STRONG`)
-- Provides immediate feedback for invalid/weak passwords
-- Beginner-friendly structure and readable code
-- Simple rule-based evaluation (no entropy calculation)
+## Password Strength Criteria
 
-## 🥚 Easter Eggs
+A password can receive one point for each of the following:
 
-The CLI includes a couple of hidden keyword triggers:
+* Minimum password length
+* At least one uppercase letter
+* At least one lowercase letter
+* At least one number
+* At least one special character
 
-- `begubebek` → outputs: **BITANEM 💚**
-- `begucuk` → outputs: **BITANEM 💛**
+The final score is converted into a strength verdict.
 
-These are intentionally isolated from the core evaluation logic and exist purely as a lightweight interaction detail.
+## Project Structure
 
----
+```text
+nodejs-cli/
+├── src/
+│   ├── app.js
+│   └── strength.js
+│
+└── README.md
+```
 
-## 🧰 Tech Stack
+## Requirements
 
-- JavaScript (Node.js)
-- CLI input/output
+* Node.js
 
----
+## Running
 
----
-
-## 🧠 Mini Case Study — Password Strength Checker (Node.js)
-
-### 📌 Problem
-
-Users often overestimate the strength of their passwords.  
-A quick and deterministic way to evaluate password quality can help demonstrate how basic security rules work in practice.
-
-This project focuses on implementing a simple rule-based password strength evaluation using a CLI interface.
-
----
-
-### 🎯 Project Goals
-
-- Re-implement an existing Java console project in JavaScript (Node.js)
-- Practice CLI input handling and modular structure
-- Keep logic simple and deterministic
-- Improve project documentation and structure
-- Reinforce learning through cross-language adaptation
-
-This project is intentionally **learning-focused**, not a production-grade security tool.
-
----
-
-### 🛠️ Approach & Design Decisions
-
-- Built as a Node.js CLI application
-- Strength is evaluated using rule-based checks:
-  - Length
-  - Uppercase letters
-  - Lowercase letters
-  - Digits
-  - Special characters
-- No entropy-based scoring (kept intentionally simple)
-- Clear separation between:
-  - Input handling
-  - Evaluation logic
-  - Output formatting
-
-Easter eggs were intentionally isolated from the core logic to keep the evaluation process clean.
-
----
-
-### 📚 What I Learned
-
-- Handling user input in Node.js CLI applications
-- Structuring small projects with modular logic
-- Translating application logic between programming languages (Java → JavaScript)
-- Writing clearer, more structured GitHub documentation
-- Thinking about edge cases and user interaction design
-
----
-
-### ⚠️ Limitations
-
-This project uses simplified rules for educational purposes.
-
-It does not include:
-
-- Entropy-based strength calculations
-- Dictionary attack detection
-- Breached password database checks
-- Real-world security standards
-
----
-
-### 🚀 Possible Improvements
-
-- Add entropy-based strength scoring
-- Allow configurable strength rules
-- Add automated tests
-- Build a web-based GUI version
-- Integrate with a simple database for history tracking
-
----
-
-### ✅ Why This Project Matters
-
-Although simple, this project demonstrates:
-
-- Cross-language logic adaptation
-- Structured problem-solving
-- CLI application development
-- Clear documentation practices
-- An iterative learning mindset
-
-It represents a deliberate step in strengthening foundational development skills.
-
-
-## ▶️ Run
+From the root of the main repository:
 
 ```bash
-npm install
-npm start
+node nodejs-cli/src/app.js
+```
 
+The application will prompt you to enter a password and then display its calculated strength.
+
+## Design
+
+The implementation is split into two small modules:
+
+* `app.js` handles command-line input and output
+* `strength.js` contains the password scoring and evaluation logic
+
+This keeps the application flow separate from the core calculation logic.
+
+## What I Practiced
+
+This implementation provided practice with:
+
+* Node.js fundamentals
+* CommonJS modules
+* Command-line input with `readline`
+* JavaScript functions
+* Input processing
+* Translating existing Java logic into JavaScript
+* Keeping business logic separate from CLI interaction
+
+## Related Implementations
+
+The same project is also available in two other implementations:
+
+* [Java Console](../java-console/)
+* [JavaFX GUI](../javafx-gui/)
+
+## Main Repository
+
+Return to the [Password Strength Checker](../README.md) overview.

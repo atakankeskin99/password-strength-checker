@@ -1,133 +1,105 @@
-# 🔐 Password Strength Checker — JavaFX
+# JavaFX GUI Implementation
 
-![Java](https://img.shields.io/badge/Java-17-orange)
-![JavaFX](https://img.shields.io/badge/JavaFX-GUI-blue)
-![Maven](https://img.shields.io/badge/Build-Maven-success)
-![Status](https://img.shields.io/badge/Status-Learning--Focused-lightgrey)
+The desktop GUI implementation of the **Password Strength Checker** project, built with Java and JavaFX.
 
-A **JavaFX GUI version** of my learning-focused **Password Strength Checker** project.  
-This application evaluates password strength in real time and provides visual feedback using colors, progress bars, and suggestions.
+This version adapts the password-strength evaluation logic from the console application to an event-driven graphical interface.
 
-The core password evaluation logic is **shared with the original Java console version**, ensuring consistency across different interfaces.
+> This implementation is part of the main [Password Strength Checker](../README.md) repository.
 
-## 🔗 Original Console Version
+## Features
 
-This JavaFX project is based on and shares logic with the original Java console version:
+* Password strength evaluation
+* Five-point scoring system
+* Live evaluation while typing
+* Password show/hide option
+* Strength progress bar
+* Strength verdict
+* Strong password suggestions
+* Clear/reset button
+* Graphical user interface built with JavaFX
 
-👉 **Original Java Console Project:**  
-https://github.com/atakankeskin99/password-strength-checker
+## Password Strength Criteria
 
----
+The application evaluates passwords using criteria such as:
 
-## 🎯 Features
+* Minimum password length
+* Uppercase letters
+* Lowercase letters
+* Numbers
+* Special characters
 
-- Real-time password strength evaluation
-- Visual strength indicator (ProgressBar with color feedback)
-- Verdict levels: **WEAK / MEDIUM / STRONG**
-- Strong password suggestion for weak passwords
-- Easter egg support for special passwords 💗
-- Show / hide password toggle
-- Clean separation between **UI** and **core logic**
+The main application uses the shared five-point evaluation logic provided by `PasswordStrengthCore`.
 
----
-
-## 🖼️ Screenshots
-
-<p align="center">
-  <img src="screenshots/weak.png" alt="Weak password example" width="820"/><br/>
-  <em>Password strength evaluation — Weak case</em>
-</p>
-
-<br/>
-
-<p align="center">
-  <img src="screenshots/medium.png" alt="Medium password example" width="820"/><br/>
-  <em>Password strength evaluation — Medium case</em>
-</p>
-
-<br/>
-
-<p align="center">
-  <img src="screenshots/strong.png" alt="Strong password example" width="820"/><br/>
-  <em>Password strength evaluation — Strong case</em>
-</p>
-
-<br/>
-
-<p align="center">
-  <img src="screenshots/special.png" alt="Special password message" width="820"/><br/>
-  <em>Special message displayed for predefined passwords</em>
-</p>
-
-
-
----
-
-## 🧠 Case Study
-
-### Problem
-While building a console-based password strength checker, I wanted to:
-- Improve user experience
-- Provide instant visual feedback
-- Reuse the same password evaluation logic without duplication
-
-### Solution
-I implemented a **JavaFX GUI layer** on top of the existing logic by:
-- Extracting password evaluation rules into a reusable **core module**
-- Letting the JavaFX UI act only as a presentation layer
-- Preserving all original rules and easter eggs from the console version
-
-This approach allows the same logic to be reused for:
-- Console applications
-- JavaFX GUI
-- Potential future web or mobile interfaces
-
-### Outcome
-- Cleaner architecture
-- Better user experience
-- Easier testing and maintenance
-- Stronger portfolio project showcasing separation of concerns
-
----
-
-## 🧩 Project Structure
+## Project Structure
 
 ```text
-src/main/java/com/atakan
-├── PasswordCheckerApp.java        # JavaFX UI (presentation layer)
-├── PasswordStrengthCore.java      # Core password evaluation logic
-├── PasswordGenerator.java         # Strong password generator
-└── StrengthResult.java            # Result data model
+javafx-gui/
+├── src/
+│   └── main/
+│       └── java/
+│           └── com/
+│               └── atakan/
+│                   ├── PasswordCheckerApp.java
+│                   ├── PasswordStrengthCore.java
+│                   └── PasswordGenerator.java
+│
+├── screenshots/
+├── pom.xml
+└── README.md
 ```
 
+## Tech Stack
 
-## 🚀 How to Run
+* Java
+* JavaFX
+* Maven
 
-This project uses JavaFX with Maven.
-```text
+## Running
+
+From inside the `javafx-gui` directory:
+
+```bash
 mvn javafx:run
 ```
 
+The project can also be opened in an IDE with Maven and JavaFX support.
 
-⚠️ Running via IntelliJ's default “Run” button may cause JavaFX runtime errors.
-Always run using Maven (javafx:run).
+## Interface
 
----
+The application provides:
 
-## 📌 Notes
+* A password input field
+* Optional password visibility
+* A visual strength indicator
+* A textual strength verdict
+* Password suggestions when the entered password is not considered strong
 
-- This is a **learning-focused project**, not a production security tool
-- Password rules are intentionally simple for educational clarity
-- The goal is to practice Java, JavaFX, and clean architecture principles
-- UI and core logic are intentionally separated for reusability
+The strength result updates automatically while typing and can also be triggered using the **Check** button.
 
----
+## Screenshot
 
-## ✨ Learning Highlights
+See the [`screenshots`](screenshots/) directory for an example of the JavaFX application.
 
-- JavaFX UI development
-- CSS-based visual feedback in JavaFX
-- Separation of UI and business logic
-- Reusable core design
-- Maven-based JavaFX project setup
+## What I Practiced
 
+This implementation provided practice with:
+
+* JavaFX application structure
+* Event-driven programming
+* UI controls and layouts
+* Property listeners
+* Progress bars
+* Separating password evaluation logic from the interface
+* Maven dependency and build management
+* Translating a console application into a desktop GUI
+
+## Related Implementations
+
+The same project is also available in two other implementations:
+
+* [Java Console](../java-console/)
+* [Node.js CLI](../nodejs-cli/)
+
+## Main Repository
+
+Return to the [Password Strength Checker](../README.md) overview.

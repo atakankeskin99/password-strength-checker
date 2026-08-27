@@ -1,184 +1,190 @@
-# 🔐 Password Strength Checker (BITANEM Edition)
-![Java](https://img.shields.io/badge/Java-JDK%2017-orange)
-![Type](https://img.shields.io/badge/type-Console-lightgrey)
-![Testing](https://img.shields.io/badge/tested_with-JUnit%205-blue)
-![Status](https://img.shields.io/badge/status-learning%20project-lightgrey)
+# Password Strength Checker
 
+![Java](https://img.shields.io/badge/Java-Console-orange)
+![JavaFX](https://img.shields.io/badge/JavaFX-GUI-blue)
+![Node.js](https://img.shields.io/badge/Node.js-CLI-green)
+![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
-> ✅ Also available in Node.js (learning-focused CLI version):  
-> https://github.com/atakankeskin99/password-strength-checker-js
+A multi-implementation password strength checker built to explore how the same core logic can be adapted across different languages, interfaces, and application environments.
 
-This project is my **first and symbolic software project**.  
-A small step for humanity, but a big step for Atakan. 🚀😄
+The project started as a **Java console application**, was later extended into a **JavaFX desktop GUI**, and was also implemented as a **Node.js command-line application**.
 
-It is a simple Java console application that evaluates  
-**how strong a given password is**.  
-And of course, it includes special “secret mode” responses for the  
-legendary passwords *"begubebek"* and *"begucuk"*. 💚
+## Implementations
 
-## 💡 Features
-- Checks password length  
-- Detects uppercase / lowercase / digits / special characters  
-- Special hidden responses:
-  - `begubebek` → **BITANEM** 💚  
-  - `begucuk` → **BITANEM** 💛  
-- Clean and beginner-friendly Java implementation
- 
-- Lightweight and console-based
+| Version      | Technology           | Interface   | Main Focus                          |
+| ------------ | -------------------- | ----------- | ----------------------------------- |
+| Java Console | Java                 | CLI         | Core logic, validation and testing  |
+| JavaFX GUI   | Java / JavaFX        | Desktop GUI | Event-driven UI development         |
+| Node.js CLI  | JavaScript / Node.js | CLI         | Translating the logic to JavaScript |
 
-  ## ✨ New Feature: Helpful Feedback for Weak/Medium Passwords
+## Project Structure
 
-If the password is not **STRONG**, the application now shows **which requirements are missing**, helping the user understand exactly how to improve the password.
+```text
+password-strength-checker/
+├── java-console/
+│   ├── src/
+│   └── screenshots/
+│
+├── javafx-gui/
+│   ├── src/
+│   ├── screenshots/
+│   └── pom.xml
+│
+├── nodejs-cli/
+│   ├── src/
+│   └── README.md
+│
+├── README.md
+├── LICENSE
+└── .gitignore
+```
 
-### Example Output (CLI)
+## Evolution
 
-<p align="center">
-  <img src="screenshots/example.png" alt="Missing requirements output screenshot" width="800" />
-</p>
+```text
+Java Console
+     ↓
+JavaFX GUI
+     ↓
+Node.js CLI
+```
 
-<p align="center">
-  <em>Weak password feedback — missing requirements are listed and a strong password is suggested</em>
-</p>
+Each implementation evaluates password strength using similar criteria while exploring a different development environment.
 
-### What it checks
-- At least one uppercase letter (A-Z)
-- At least one lowercase letter (a-z)
-- At least one digit (0-9)
-- At least one special character (!@#$...)
-- Minimum length of 9 characters
+The implementations originally existed as separate repositories and were later consolidated into this repository while preserving their Git history.
 
+## Password Evaluation
 
- ## 🧪 Tests
+Passwords are evaluated using criteria such as:
 
-This project includes **JUnit 5** tests written as part of my learning process to better understand automated testing in Java and how it improves code reliability and confidence during refactoring.
+* Minimum password length
+* Uppercase letters
+* Lowercase letters
+* Numbers
+* Special characters
 
-### Purpose of the tests
+The applications classify passwords based on how many of these requirements are satisfied.
 
-The tests were added to:
+## Java Console
 
-- Learn the fundamentals of unit testing with JUnit 5  
-- Understand how to verify business logic programmatically  
-- Practice writing tests both before and after modifying existing code  
-- Gain hands-on experience with test-driven thinking  
+Location:
 
-### Covered scenarios
+```text
+java-console/
+```
 
-- Special predefined passwords (`begubebek`, `begucuk`)
-- Weak passwords (short length, low complexity)
-- Medium-strength passwords
-- Strong passwords based on length and character variety
-- Validation of missing password requirements
-- Verification that generated passwords are always strong
+The original implementation of the project.
 
-### Running the tests
+It provides a command-line interface for entering a password and evaluating its strength.
 
-To run the tests in **IntelliJ IDEA**:
+The Java version also includes:
 
-1. Open the project  
-2. Right-click on the `src/test` directory  
-3. Select **Run 'Tests in test'**
+* Missing-criteria feedback
+* Strong password suggestions
+* Secure random password generation
+* JUnit tests
 
-All tests are expected to pass and help ensure that future changes do not break the existing password strength evaluation logic.
+## JavaFX GUI
 
+Location:
 
-## 🔁 Implementations
+```text
+javafx-gui/
+```
 
-> ✅ Also available in other implementations (JavaFX GUI & Node.js CLI):
+The desktop implementation built with JavaFX.
 
-- **JavaFX (GUI version)**  
-  https://github.com/atakankeskin99/password-strength-checker-javafx
+It adapts the password-strength logic to an event-driven graphical interface and provides visual feedback while the user interacts with the application.
 
-- **Node.js (CLI version)**  
-  https://github.com/atakankeskin99/password-strength-checker-js
+Features include:
 
+* Password input field
+* Show/hide password option
+* Strength progress bar
+* Strength verdict
+* Automatic password suggestions
+* Live evaluation while typing
+* Clear/reset functionality
 
+The project uses Maven for dependency and build management.
 
----
+## Node.js CLI
 
-## 🛠 Technologies Used
-- **Java 17**
-- **JUnit 5**
-- **IntelliJ IDEA Community Edition**
-- Regex and conditional logic
+Location:
 
+```text
+nodejs-cli/
+```
 
- ## 🧠 Mini Case Study — Password Strength Checker
+A JavaScript implementation designed to run from the command line with Node.js.
 
-### 📌 Problem
-Many users are unsure whether their passwords are actually strong or not.
-This project aims to provide a **quick and clear evaluation** of a password’s strength using basic, easy-to-understand rules.
+This version demonstrates how the same password-strength concept can be translated from Java into JavaScript while keeping the application lightweight.
 
----
+## What This Project Demonstrates
 
-### 🎯 Project Goals
-- Practice **core Java fundamentals** with a real-world inspired example  
-- Use simple, deterministic rules to evaluate password strength  
-- Keep the code **readable and beginner-friendly**  
-- Provide immediate feedback and suggestions to the user
+The main purpose of this repository is to explore the evolution of the same application idea across different environments.
 
----
+Through the three implementations, the project demonstrates:
 
-### 🛠️ Approach & Design Decisions
-- The project is built as a **pure Java console application** with no external dependencies.
-- Password strength is determined using:
-  - Minimum length
-  - Uppercase letters
-  - Lowercase letters
-  - Digits
-  - Special characters
-- Instead of a numeric score, passwords are classified as:
-  - `WEAK`
-  - `MEDIUM`
-  - `STRONG`
-- When a password is not strong, the program generates a **secure random password suggestion** using `SecureRandom`.
-- Small “easter eggs” were added to make the interaction more engaging.
+* Translating application logic between Java and JavaScript
+* Console-based application development
+* Desktop GUI development with JavaFX
+* Event-driven programming
+* Input validation
+* Password-strength evaluation
+* Secure random password generation
+* Automated testing
+* Maven-based Java project management
+* Incremental project evolution
 
----
+## Running the Implementations
 
-### 📚 What I Learned
-- Working with **regular expressions** to detect character groups
-- Basic **input validation** in console applications
-- Separating logic (password checking vs password generation)
-- Writing a clear and structured **README** for a GitHub project
-- As part of this project, I also added basic JUnit tests to better understand
-how automated testing helps protect core logic during refactoring.
+### Java Console
 
+From the repository root:
 
----
-
-### ⚠️ Limitations
-This project uses simplified rules for educational purposes.
-Real-world password checkers may also include:
-- Entropy-based calculations
-- Dictionary or breached-password checks
-- Context-aware security rules
-
----
-
-### 🚀 Possible Improvements
-- Add entropy-based strength scoring
-- Create a GUI or web version (HTML / JavaScript)
-- Make rules configurable
-- Add more edge case unit tests
-
-
----
-
-### ✅ Why This Project Matters
-Although simple, this project demonstrates:
-- Problem-solving approach
-- Clean and understandable code structure
-- Awareness of real-world limitations
-- A focus on learning and improvement
-
-It represents an early but meaningful step in my software development journey.
-
-
----
-
-## 🚀 How to Run
 ```bash
-javac Main.java
-java test.Main   # when Main.java is in the 'test' package
+javac -d java-console/out java-console/src/main/java/test/Main.java
+java -cp java-console/out test.Main
+```
 
+### JavaFX GUI
 
+From the `javafx-gui` directory:
+
+```bash
+mvn javafx:run
+```
+
+The project can also be opened and run through an IDE with Maven support.
+
+### Node.js CLI
+
+From the repository root:
+
+```bash
+node nodejs-cli/src/app.js
+```
+
+## Possible Improvements
+
+Future improvements could include:
+
+* Shared and more consistent scoring rules between implementations
+* Configurable password requirements
+* Additional automated tests
+* Dictionary-based common-password detection
+* Entropy estimation
+* Improved JavaFX UI styling
+* A browser-based implementation
+* Separation of scoring rules into reusable components
+
+## Repository History
+
+The Java console, JavaFX, and Node.js implementations originally existed as separate repositories.
+
+They were later consolidated into this repository while preserving their individual Git histories. This makes it possible to follow the development of the project from its original console implementation to alternative interfaces and runtimes.
+
+## License
+
+This project is licensed under the MIT License.
