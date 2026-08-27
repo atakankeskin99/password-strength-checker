@@ -46,7 +46,8 @@ public class PasswordCheckerApp extends Application {
         strengthBar.setPrefWidth(260);
         strengthBar.setProgress(0);
 
-        HBox strengthRow = new HBox(10,
+        HBox strengthRow = new HBox(
+                10,
                 new Label("Score:"),
                 strengthBar,
                 strengthLabel
@@ -74,10 +75,11 @@ public class PasswordCheckerApp extends Application {
         checkBtn.setOnAction(e -> update.run());
 
         // Live update while typing
-        passwordField.textProperty().addListener((obs, o, n) -> update.run());
+        passwordField.textProperty().addListener((obs, oldValue, newValue) -> update.run());
 
         clearBtn.setOnAction(e -> {
             passwordField.clear();
+
             // UI reset
             strengthBar.setProgress(0);
             strengthLabel.setText("Strength: —");
@@ -86,7 +88,8 @@ public class PasswordCheckerApp extends Application {
         });
 
         // Layout
-        VBox root = new VBox(12,
+        VBox root = new VBox(
+                12,
                 title,
                 passwordField,
                 visibleField,
@@ -97,6 +100,7 @@ public class PasswordCheckerApp extends Application {
                 new Label("Feedback:"),
                 feedbackArea
         );
+
         root.setPadding(new Insets(16));
         root.setPrefWidth(460);
 
@@ -108,16 +112,8 @@ public class PasswordCheckerApp extends Application {
     }
 
     private void evaluate(String password) {
-        if (password == null) password = "";
-
-        // Easter egg (console ile birebir)
-        if (password.equalsIgnoreCase("begubebek") || password.equalsIgnoreCase("begucuk")) {
-            strengthBar.setProgress(1.0);
-            strengthLabel.setText("Score: 5/5");
-            verdictLabel.setText("Password Strength: BITANEM");
-            strengthBar.setStyle("-fx-accent: #ff69b4;");
-            feedbackArea.setText("💗");
-            return;
+        if (password == null) {
+            password = "";
         }
 
         int score = PasswordStrengthCore.calculateStrength(password);
@@ -126,13 +122,13 @@ public class PasswordCheckerApp extends Application {
         strengthBar.setProgress(score / 5.0);
         strengthLabel.setText("Score: " + score + "/5");
         verdictLabel.setText("Password Strength: " + verdict);
-        applyStrengthColor(verdict);
 
+        applyStrengthColor(verdict);
 
         if (PasswordStrengthCore.needsSuggestion(verdict)) {
             feedbackArea.setText(
                     "Suggested Strong Password:\n" +
-                            PasswordGenerator.generateStrongPassword()
+                    PasswordGenerator.generateStrongPassword()
             );
         } else {
             feedbackArea.setText("✅ No suggestion needed.");
@@ -141,56 +137,100 @@ public class PasswordCheckerApp extends Application {
 
     private void applyStrengthColor(String verdict) {
         switch (verdict) {
-            case "WEAK" -> strengthBar.setStyle("-fx-accent: #e74c3c;");    // red
-            case "MEDIUM" -> strengthBar.setStyle("-fx-accent: #f39c12;"); // orange
-            case "STRONG" -> strengthBar.setStyle("-fx-accent: #2ecc71;"); // green
-            default -> strengthBar.setStyle("-fx-accent: #ff69b4;");       // pink (BITANEM)
+            case "WEAK" ->
+                    strengthBar.setStyle("-fx-accent: #e74c3c;");
+
+            case "MEDIUM" ->
+                    strengthBar.setStyle("-fx-accent: #f39c12;");
+
+            case "STRONG" ->
+                    strengthBar.setStyle("-fx-accent: #2ecc71;");
+
+            default ->
+                    strengthBar.setStyle("");
         }
     }
-
 
     public static void main(String[] args) {
         launch(args);
     }
 
-
-
-    record StrengthResult(int score, String verdict, java.util.List<String> feedback) {}
+    record StrengthResult(
+            int score,
+            String verdict,
+            java.util.List<String> feedback
+    ) {}
 
     static class PasswordStrength {
 
         static StrengthResult evaluate(String password) {
-            if (password == null) password = "";
+            if (password == null) {
+                password = "";
+            }
+
             String p = password;
 
             java.util.ArrayList<String> tips = new java.util.ArrayList<>();
             int score = 0;
 
             if (p.isBlank()) {
-                return new StrengthResult(0, "Type a password…", java.util.List.of("• Start typing to see feedback."));
+                return new StrengthResult(
+                        0,
+                        "Type a password…",
+                        java.util.List.of("• Start typing to see feedback.")
+                );
             }
 
-            // length
-            if (p.length() >= 8) score += 20; else tips.add("• Use at least 8 characters.");
-            if (p.length() >= 12) score += 15; else tips.add("• 12+ characters is better.");
+            // Length
+            if (p.length() >= 8) {
+                score += 20;
+            } else {
+                tips.add("• Use at least 8 characters.");
+            }
 
-            // variety
+            if (p.length() >= 12) {
+                score += 15;
+            } else {
+                tips.add("• 12+ characters is better.");
+            }
+
+            // Character variety
             boolean hasLower = p.matches(".*[a-z].*");
             boolean hasUpper = p.matches(".*[A-Z].*");
             boolean hasDigit = p.matches(".*\\d.*");
             boolean hasSymbol = p.matches(".*[^a-zA-Z0-9].*");
 
-            if (hasLower) score += 12; else tips.add("• Add a lowercase letter.");
-            if (hasUpper) score += 12; else tips.add("• Add an uppercase letter.");
-            if (hasDigit) score += 12; else tips.add("• Add a number.");
-            if (hasSymbol) score += 14; else tips.add("• Add a symbol (e.g. !@#).");
+            if (hasLower) {
+                score += 12;
+            } else {
+                tips.add("• Add a lowercase letter.");
+            }
 
-            // penalties (very common patterns)
+            if (hasUpper) {
+                score += 12;
+            } else {
+                tips.add("• Add an uppercase letter.");
+            }
+
+            if (hasDigit) {
+                score += 12;
+            } else {
+                tips.add("• Add a number.");
+            }
+
+            if (hasSymbol) {
+                score += 14;
+            } else {
+                tips.add("• Add a symbol (e.g. !@#).");
+            }
+
+            // Penalties for common patterns
             if (p.matches("(?i)^(password|qwerty|123456|12345678|admin|letmein).*")) {
                 score -= 25;
                 tips.add("• Avoid common passwords like 'password', '123456', 'qwerty'.");
             }
-            if (p.matches(".*(.)\\1\\1.*")) { // 3 same chars in a row
+
+            if (p.matches(".*(.)\\1\\1.*")) {
                 score -= 8;
                 tips.add("• Avoid repeating the same character 3+ times.");
             }
@@ -208,10 +248,22 @@ public class PasswordCheckerApp extends Application {
         }
 
         private static String verdict(int score) {
-            if (score >= 85) return "✅ Strong";
-            if (score >= 70) return "🟢 Good";
-            if (score >= 50) return "🟡 Medium";
-            if (score >= 30) return "🟠 Weak";
+            if (score >= 85) {
+                return "✅ Strong";
+            }
+
+            if (score >= 70) {
+                return "🟢 Good";
+            }
+
+            if (score >= 50) {
+                return "🟡 Medium";
+            }
+
+            if (score >= 30) {
+                return "🟠 Weak";
+            }
+
             return "🔴 Very weak";
         }
     }

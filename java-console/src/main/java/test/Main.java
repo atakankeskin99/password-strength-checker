@@ -6,9 +6,7 @@ import java.util.Scanner;
 public class Main {
 
     public static int calculateStrength(String password) {
-        // private password
-        if (password.equals("begubebek")) return 5;
-        if (password.equals("begucuk")) return 5;
+
 
         int score = 0;
 
@@ -97,11 +95,7 @@ public class Main {
         System.out.print("Enter password: ");
         String password = scanner.nextLine();
 
-        // precious password - pofuduk
-        if (password.equalsIgnoreCase("begubebek") || password.equalsIgnoreCase("begucuk")) {
-            System.out.println("\nPassword Strength: BITANEM");
-            return;
-        }
+       
 
         int score = calculateStrength(password);
         String result = evaluate(score);

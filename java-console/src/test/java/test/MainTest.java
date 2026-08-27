@@ -5,15 +5,7 @@ import org.junit.jupiter.api.Test;
 
 public class MainTest {
 
-    @Test
-    void begubebek_ShouldReturnStrongScore5() {
-        assertEquals(5, Main.calculateStrength("begubebek"));
-    }
-
-    @Test
-    void begucuk_ShouldReturnStrongScore5() {
-        assertEquals(5, Main.calculateStrength("begucuk"));
-    }
+   
 
     @Test
     void weakPassword_ShouldReturnWeak() {

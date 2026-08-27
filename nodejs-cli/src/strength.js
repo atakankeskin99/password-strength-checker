@@ -1,7 +1,6 @@
 function calculateStrength(password) {
   let score = 0;
-  // Easter eggs (match Java behavior)
-  if (password === "begubebek" || password === "begucuk") return 5;
+  
 
   if (password.length >= 9) score++;
   if (/[A-Z]/.test(password)) score++;

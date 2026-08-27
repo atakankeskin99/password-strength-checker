@@ -6,9 +6,7 @@ import java.util.List;
 public class PasswordStrengthCore {
 
     public static int calculateStrength(String password) {
-        // private password (easter egg)
-        if (password.equals("begubebek")) return 5;
-        if (password.equals("begucuk")) return 5;
+        
 
         int score = 0;
 

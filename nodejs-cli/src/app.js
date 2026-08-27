@@ -7,13 +7,6 @@ const rl = readline.createInterface({
 });
 
 rl.question("Enter password: ", (password) => {
-  // Easter eggs (match Java behavior)
-  if (password.toLowerCase() === "begubebek" || password.toLowerCase() === "begucuk") {
-    console.log("\nPassword Strength: BITANEM");
-    rl.close();
-    return;
-  }
-
   const score = calculateStrength(password);
   const result = evaluate(score);
 
