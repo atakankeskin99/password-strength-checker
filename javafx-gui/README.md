@@ -78,22 +78,22 @@ The strength result updates automatically while typing and can also be triggered
 
 ## Screenshots
 
-### Weak Password
-
 <p align="center">
   <img src="screenshots/weak.png" alt="Weak password evaluation" width="650">
+  <br>
+  <sub><i>Weak password evaluation</i></sub>
 </p>
-
-### Medium Password
 
 <p align="center">
   <img src="screenshots/medium.png" alt="Medium password evaluation" width="650">
+  <br>
+  <sub><i>Medium password evaluation</i></sub>
 </p>
-
-### Strong Password
 
 <p align="center">
   <img src="screenshots/strong.png" alt="Strong password evaluation" width="650">
+  <br>
+  <sub><i>Strong password evaluation</i></sub>
 </p>
 
 ## What I Practiced
